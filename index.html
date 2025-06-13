@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake News Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Fake News Detection</h1>
+        <form method="POST">
+            <input type="text" name="url" placeholder="Enter Website URL" required>
+            <button type="submit">Detect</button>
+        </form>
+
+        {% if result %}
+        <div class="output">
+            <p><strong>Detected Language:</strong> {{ result.language }}</p>
+            <p><strong>Original Text:</strong> {{ result.original }}</p>
+            <p><strong>Translated Headline (English):</strong> {{ result.translated }}</p>
+            <p><strong>Classification:</strong> {{ result.classification }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
